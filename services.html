@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- هذا يخلي الصفحة متجاوبة مع الجوال -->
+
+    <title>خدماتنا | مؤسسة السمع</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة أيقونات استخدمتها في الكروت -->
+</head>
+
+<body>
+
+    <header>
+        <!-- هذا الهيدر اللي يظهر فوق في كل الصفحات -->
+
+        <div class="container header-container">
+            <!-- container عشان يرتب العناصر في سطر واحد -->
+
+            <div class="logo">
+                <img src="image/logo2.png" alt="مؤسسة السمع" class="logo">
+                <!-- شعار المؤسسة -->
+            </div>
+
+            <!-- هذا checkbox استخدمته عشان قائمة الجوال -->
+            <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+
+            <label for="menu-checkbox" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+                <!-- أيقونة القائمة -->
+            </label>
+
+            <nav>
+                <!-- روابط التنقل بين الصفحات -->
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+
+                    <!-- هنا حطيت active عشان تبين الصفحة الحالية -->
+                    <li><a href="services.html" class="active">خدماتنا</a></li>
+
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>الخدمات التخصصية</h1>
+            <p>
+                نقدم مجموعة شاملة من الخدمات المتطورة في مجال السمعيات والتخاطب
+            </p>
+        </div>
+    </div>
+
+    <section class="services-section">
+        <!-- هذا قسم عرض الخدمات -->
+
+        <div class="container">
+
+            <div class="section-title">
+                <!-- عنوان القسم -->
+
+                <span class="subtitle">خدماتنا</span>
+                <h2>حلول متكاملة لرعايتكم</h2>
+
+                <p>
+                    نحن هنا لنساعدك على استعادة عالمك الصوتي بأفضل الطرق العلمية والتقنية.
+                </p>
+            </div>
+
+            <div class="grid-container">
+                <!-- استخدمت grid عشان أعرض الخدمات بشكل مرتب في كروت -->
+
+                <div class="card" data-number="01">
+                    <!-- كرت الخدمة الأولى -->
+
+                    <i class="fas fa-stethoscope"></i>
+                    <!-- أيقونة طبية -->
+
+                    <h3>فحص السمع الشامل</h3>
+
+                    <p>
+                        نقوم بإجراء الفحوصات السمعية الدقيقة والمتقدمة لجميع الفئات العمرية باستخدام أحدث الأجهزة الطبية.
+                    </p>
+                </div>
+        
+                <div class="card" data-number="02">
+                    <!-- كرت الخدمة الثانية -->
+
+                    <i class="fas fa-child"></i>
+
+                    <h3>تأهيل النطق والتخاطب</h3>
+
+                    <p>
+                        جلسات تأهيلية مكثفة لعلاج مشاكل النطق واللغة والتأتأة لدى الأطفال والبالغين.
+                    </p>
+                </div>
+        
+                <div class="card" data-number="03">
+                    <!-- كرت الخدمة الثالثة -->
+
+                    <i class="fas fa-ear-listen"></i>
+
+                    <h3>برمجة المعينات السمعية</h3>
+
+                    <p>
+                        تركيب وبرمجة السماعات الطبية الرقمية باستخدام أحدث تقنيات البرمجة.
+                    </p>
+                </div>
+        
+                <div class="card" data-number="04">
+                    <!-- كرت الخدمة الرابعة -->
+
+                    <i class="fas fa-brain"></i>
+
+                    <h3>تأهيل زارعي القوقعة</h3>
+
+                    <p>
+                        برامج متخصصة لمساعدة المرضى على تمييز الأصوات وفهم الكلام.
+                    </p>
+                </div>
+        
+                <div class="card" data-number="05">
+                    <!-- كرت الخدمة الخامسة -->
+
+                    <i class="fas fa-tools"></i>
+
+                    <h3>صيانة السماعات الطبية</h3>
+
+                    <p>
+                        صيانة وتنظيف كافة أنواع المعينات السمعية وتوفير قطع الغيار.
+                    </p>
+                </div>
+        
+                <div class="card" data-number="06">
+                    <!-- كرت الخدمة السادسة -->
+
+                    <i class="fas fa-user-doctor"></i>
+
+                    <h3>الاستشارات المتخصصة</h3>
+
+                    <p>
+                        تقديم الدعم النفسي والإرشادي لأسر الأطفال ضعاف السمع.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- هذا الفوتر أسفل الصفحة -->
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    <img src="image/logowhite.png" alt="" class="logo">
+                    <!-- شعار الفوتر -->
+                </div>
+
+                <div class="footer-about">
+                    <!-- نبذة عن المؤسسة -->
+
+                    <p>
+                        نعمل بشغف لنعيد الأمل والبسمة لمن يعانون من مشاكل السمع،
+                        من خلال تقنيات حديثة وكادر خبير يضع صحتك في المقام الأول.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <!-- روابط سريعة -->
+
+                <h3>روابط هامة</h3>
+
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <!-- معلومات التواصل -->
+
+                <h3>تواصل معنا</h3>
+
+                <p>
+                    <i class="fas fa-location-dot"></i>
+                    اليمن - حضرموت - تريم 
+                </p>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    967770834056+
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    hearingcareandrehabilitationfo@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <!-- حقوق النشر -->
+
+            &copy; 2024 مؤسسة السمع للرعاية والتأهيل. جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- ربطت ملف الجافاسكربت عشان الحركات والتفاعل في الموقع -->
+
+</body>
+</htm

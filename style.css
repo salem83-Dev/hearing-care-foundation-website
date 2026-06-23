@@ -1,0 +1,1309 @@
+ /* استيراد خط كايو العربي الاحترافي */
+/* هنا استوردت خط Cairo من Google Fonts عشان يكون شكل الموقع احترافي وواضح بالعربي */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+    /* هنا عرفت ألوان الموقع والمتغيرات الأساسية عشان أستخدمها في كل الصفحات */
+
+    --primary: #4caf50; /* هذا اللون الأخضر حق الشعار */
+    --primary-dark: #388e3c; /* درجة أغمق من الأخضر */
+    --secondary: #8bc34a; /* لون مساعد */
+    --accent: #795548; /* اللون البني المستخدم في بعض العناوين */
+
+    /* تدرج لوني استخدمته في الأزرار والخلفيات */
+    --gradient: linear-gradient(135deg, #4caf50, #8bc34a);
+
+    --dark: #1e272e; /* لون غامق للخلفيات */
+    --text-color: #2d3436; /* لون النص الأساسي */
+    --text-muted: #636e72; /* لون نص خفيف */
+
+    --bg-light: #f4f6f8; /* لون خلفية الصفحة */
+    --white: #ffffff; 
+
+    /* ظل جاهز استخدمته للكروت والعناصر */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    direction: rtl;
+    background: var(--bg-light);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Container */
+/* هذا العنصر استخدمته لتوسيط المحتوى داخل الصفحة */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* الهيدر */
+/* هنا صممت الهيدر العلوي للموقع */
+
+header {
+    position: relative;
+    width: 100%;
+    background: var(--white);
+    z-index: 1000;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.header-container {
+    /* هنا استخدمت flex عشان أرتب الشعار والقائمة في سطر واحد */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    transition: 0.5s;
+}
+
+.logo img {
+    width: 100%;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.05));
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+} 
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.4s ease;
+    padding: 5px 0;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* الخط المتحرك تحت الرابط */
+nav ul li a::after {
+    content: '';
+
+    /* تحديد مكان الخط */
+    position: absolute;
+
+    bottom: -2px;
+    left: 50%;
+
+    /* في البداية يكون مخفي */
+    width: 0;
+
+    height: 1.5px;
+
+    /* لون متدرج */
+    background: var(--gradient);
+
+    /* حركة ناعمة */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* توسيط الخط */
+    transform: translateX(-50%);
+}
+
+/* عند مرور الماوس أو الصفحة الحالية */
+nav ul li a:hover, 
+nav ul li a.active {
+    /* تغيير اللون إلى الأخضر */
+    color: var(--primary);
+}
+
+/* هنا يظهر الخط تحت الرابط */
+nav ul li a:hover::after, 
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* هذا checkbox استخدمته للتحكم في القائمة في الجوال */
+.menu-checkbox { 
+    display: none; 
+}
+
+/* زر القائمة (الثلاث خطوط) */
+.menu-toggle { 
+    display: none; 
+
+    /* حجم الأيقونة */
+    font-size: 1.8rem; 
+
+    /* لون الأيقونة */
+    color: var(--primary); 
+
+    /* شكل المؤشر عند المرور */
+    cursor: pointer; 
+}
+/* السلايدر الحيوي (الرئيسية) */
+.hero {
+    /* خليت ارتفاع القسم يساوي ارتفاع الشاشة كامل */
+    height: 100vh;
+
+    /* لون خلفية احتياطي لو الصورة ما ظهرت */
+    background: var(--dark);
+
+    /* عشان أتحكم في العناصر اللي داخله */
+    position: relative;
+
+    /* يمنع أي عنصر يطلع خارج الإطار */
+    overflow: hidden;
+
+    /* استخدمت flex لتوسيط النص عمودي */
+    display: flex;
+
+    /* توسيط المحتوى في المنتصف */
+    align-items: center;
+}
+
+.hero::after {
+    /* طبقة شفافة فوق الصورة */
+    content: '';
+
+    position: absolute;
+
+    /* تغطي القسم كامل */
+    top:0; 
+    left:0; 
+    width: 100%; 
+    height: 100%;
+
+    /* تدرج لوني غامق يساعد النص يكون واضح */
+    background: linear-gradient(
+        to right, 
+        rgba(0,0,0,0.7), 
+        rgba(0,0,0,0.3)
+    );
+
+    /* عشان تكون فوق الصورة */
+    z-index: 1;
+}
+
+.hero-slide {
+    /* هذا يمثل كل صورة في السلايدر */
+    position: absolute;
+
+    /* الصورة تغطي المساحة كاملة */
+    width: 100%; 
+    height: 100%;
+
+    /* تخلي الصورة تتمدد حسب الحجم */
+    background-size: cover;
+
+    /* توسيط الصورة */
+    background-position: center;
+
+    /* في البداية تكون مخفية */
+    opacity: 0;
+
+    /* حركة تغيير الصور */
+    animation: sliderFade 12s infinite;
+}
+
+/* الصورة الثانية تتأخر 6 ثواني */
+.hero-slide:nth-child(2) {
+    animation-delay: 6s;
+}
+
+/* حركة تبديل الصور */
+@keyframes sliderFade {
+
+    /* الصورة تظهر مع تكبير بسيط */
+    0%, 45% { 
+        opacity: 1; 
+        transform: scale(1.05); 
+    }
+
+    /* الصورة تختفي */
+    55%, 100% { 
+        opacity: 0; 
+        transform: scale(1); 
+    }
+}
+
+.hero-text {
+    /* النص فوق الصور */
+    position: relative;
+
+    /* عشان يكون فوق طبقة التدرج */
+    z-index: 10;
+
+    /* محاذاة النص لليمين */
+    text-align: right;
+
+    /* لون النص أبيض */
+    color: white;
+}
+.hero-text h1 {
+    /* حجم كبير للعنوان الرئيسي */
+    font-size: 4.5rem;
+
+    /* خط عريض عشان يبرز العنوان */
+    font-weight: 800;
+
+    /* ظل خلف النص عشان يكون واضح فوق الصورة */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+
+    /* حركة ظهور من الأسفل */
+    animation: fadeInUp 1s forwards;
+
+    /* مسافة تحت العنوان */
+    margin-bottom: 15px;
+
+    /* لون النص أبيض */
+    color: var(--white);
+}
+
+.hero-text p {
+    /* حجم النص الوصفي */
+    font-size: 1.5rem;
+
+    /* مسافة فوق وتحت النص */
+    margin: 20px 0 40px;
+
+    /* حركة ظهور للنص */
+    animation: fadeInUp 1.2s forwards;
+
+    /* لون نص فاتح */
+    color: #ecf0f1;
+
+    /* حددت عرض أقصى للنص عشان ما يتمدد كثير */
+    max-width: 600px;
+}
+
+/* هيدر الصفحات الداخلية */
+/* هذا القسم يظهر في صفحات مثل: من نحن - خدماتنا - اتصل بنا */
+.page-header {
+    /* مسافة داخلية من الأعلى والأسفل */
+    padding: 80px 0;
+
+    /* لون خلفية غامق */
+    background: var(--dark);
+
+    /* لون النص */
+    color: var(--white);
+
+    /* توسيط النص في المنتصف */
+    text-align: center;
+
+    /* عشان أضيف عناصر فوقه */
+    position: relative;
+
+    /* صورة خلفية مع طبقة شفافة فوقها */
+    background-image: 
+        linear-gradient(
+            rgba(30, 39, 46, 0.9), 
+            rgba(30, 39, 46, 0.9)
+        ), 
+        url('image/hea.jpg');
+
+    /* تخلي الصورة تغطي المساحة */
+    background-size: cover;
+
+    /* توسيط الصورة */
+    background-position: center;
+}
+
+.page-header h1 {
+    /* حجم عنوان الصفحة */
+    font-size: 3.5rem;
+
+    /* لون أخضر */
+    color: var(--primary);
+
+    /* مسافة تحت العنوان */
+    margin-bottom: 20px;
+
+    /* عشان أضيف خط تحته */
+    position: relative;
+
+    padding-bottom: 20px;
+
+    /* يخلي العنصر بحجم المحتوى */
+    display: inline-block;
+
+    /* خط عريض */
+    font-weight: 800;
+}
+
+/* الخط الزخرفي تحت العنوان */
+.page-header h1::after {
+    content: '';
+
+    /* تحديد مكان الخط */
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    /* توسيط الخط */
+    transform: translateX(-50%);
+
+    /* عرض الخط */
+    width: 100px;
+
+    /* سماكة الخط */
+    height: 5px;
+
+    /* لون متدرج */
+    background: var(--gradient);
+
+    /* حواف دائرية */
+    border-radius: 10px;
+}
+
+.page-header p {
+    /* حجم النص الوصفي */
+    font-size: 1.2rem;
+
+    /* لون رمادي فاتح */
+    color: #ccc;
+
+    /* مسافة فوق النص */
+    margin-top: 15px;
+}
+/* Section Titles - Modern & Attractive Version */
+.section-title {
+    /* توسيط كل محتوى العنوان */
+    text-align: center;
+
+    /* مسافة تحت القسم عشان يفصل بينه وبين اللي بعده */
+    margin-bottom: 60px;
+
+    /* عشان أقدر أضيف عناصر مزخرفة لو احتجت */
+    position: relative;
+}
+
+.section-title .subtitle {
+    /* يخلي النص ينزل سطر لحاله */
+    display: block;
+
+    /* حجم صغير للنص الفرعي */
+    font-size: 1rem;
+
+    /* خط عريض شوي */
+    font-weight: 700;
+
+    /* لون أخضر */
+    color: var(--primary);
+
+    /* يخلي النص كابتل (كبير الحروف) */
+    text-transform: uppercase;
+
+    /* تباعد بين الحروف */
+    letter-spacing: 2px;
+
+    /* مسافة تحت النص */
+    margin-bottom: 10px;
+
+    /* خلفية خفيفة خضراء */
+    background: rgba(76, 175, 80, 0.1);
+
+    /* يخلي العرض على قد المحتوى */
+    width: fit-content;
+
+    /* توسيط العنصر */
+    margin: 0 auto 15px;
+
+    /* مسافة داخلية */
+    padding: 5px 20px;
+
+    /* حواف دائرية */
+    border-radius: 50px;
+}
+
+.section-title h2 {
+    /* حجم العنوان الرئيسي */
+    font-size: 3rem;
+
+    /* لون غامق */
+    color: var(--dark);
+
+    /* خط عريض */
+    font-weight: 800;
+
+    /* مسافة تحت العنوان */
+    margin-bottom: 25px;
+
+    /* عشان أضيف خط تحته */
+    position: relative;
+
+    /* يخلي الحجم على قد النص */
+    display: inline-block;
+
+    /* مسافة تحت النص قبل الخط */
+    padding-bottom: 20px;
+}
+
+/* الخط المتحرك تحت العنوان */
+/* هذا يعطي شكل احترافي للعنوان */
+.section-title h2::after {
+    content: '';
+
+    /* مكان الخط */
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    /* توسيط الخط */
+    transform: translateX(-50%);
+
+    /* عرض الخط */
+    width: 100px;
+
+    /* سماكة الخط */
+    height: 4px;
+
+    /* لون متدرج */
+    background: var(--gradient);
+
+    /* حواف ناعمة */
+    border-radius: 10px;
+
+    /* حركة خفيفة لو تغير */
+    transition: 0.3s;
+}
+/* لما أعمل hover على القسم، الخط تحت العنوان يكبر */
+.section-title:hover h2::after {
+    width: 150px;
+}
+
+.section-title p {
+    /* لون نص خفيف عشان يكون مريح للعين */
+    color: var(--text-muted);
+
+    /* حجم النص الوصفي */
+    font-size: 1.25rem;
+
+    /* أقصى عرض للنص عشان ما يتمدد كثير */
+    max-width: 700px;
+
+    /* توسيط النص */
+    margin: 0 auto;
+
+    /* تباعد بين السطور */
+    line-height: 1.8;
+
+    /* وزن الخط عادي */
+    font-weight: 400;
+}
+
+/* بطاقات الخدمات التفاعلية */
+/* هذا القسم حق عرض الخدمات على شكل كروت */
+.services-section {
+    /* مسافة داخلية فوق وتحت */
+    padding: 100px 0;
+
+    /* لون خلفية خفيف */
+    background: var(--bg-light);
+}
+
+.grid-container {
+    /* استخدمت grid عشان أرتب الكروت بشكل تلقائي */
+    display: grid;
+
+    /* كل كرت ياخذ حجم مناسب ويتوزع تلقائي */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    /* مسافة بين الكروت */
+    gap: 40px;
+}
+
+.card {
+    /* لون خلفية الكرت */
+    background: white;
+
+    /* مسافة داخلية */
+    padding: 50px 30px;
+
+    /* حواف دائرية */
+    border-radius: 25px;
+
+    /* توسيط النص داخل الكرت */
+    text-align: center;
+
+    /* حركة ناعمة عند hover */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    /* حدود خفيفة */
+    border: 1px solid rgba(0,0,0,0.05);
+
+    /* ظل للكرت */
+    box-shadow: var(--shadow);
+
+    /* عشان أضيف تأثيرات داخلية */
+    position: relative;
+
+    /* إخفاء أي جزء يطلع برا الكرت */
+    overflow: hidden;
+
+    /* ترتيب الطبقات */
+    z-index: 1;
+}
+/* Background Number Decoration */
+/* الرقم الكبير اللي يظهر خلف الكرت */
+.card::after {
+    /* أخذت الرقم من data-number في HTML */
+    content: attr(data-number);
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    /* حجم كبير جدًا كعنصر ديكوري */
+    font-size: 5rem;
+
+    /* خط عريض جدًا */
+    font-weight: 900;
+
+    /* لون شفاف جدًا عشان يكون خلفية فقط */
+    color: rgba(0,0,0,0.03);
+
+    line-height: 1;
+
+    /* خليته خلف المحتوى */
+    z-index: -1;
+
+    /* حركة ناعمة */
+    transition: 0.5s;
+}
+
+/* عند المرور على الكرت */
+.card:hover::after {
+    /* يصير أوضح شوي */
+    color: rgba(255,255,255,0.1);
+
+    /* يكبر بشكل خفيف */
+    transform: scale(1.2);
+}
+
+/* طبقة الخلفية المتحركة داخل الكرت */
+.card::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+
+    /* البداية مخفية */
+    height: 0;
+
+    /* تدرج لوني */
+    background: var(--gradient);
+
+    /* حركة ناعمة */
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    /* خلف المحتوى */
+    z-index: -1;
+}
+
+/* عند hover الخلفية تملأ الكرت */
+.card:hover::before {
+    height: 100%;
+}
+
+/* تأثير الكرت بالكامل عند المرور */
+.card:hover {
+    /* يطلع لفوق شوي */
+    transform: translateY(-15px) scale(1.02);
+
+    /* لون النص يتحول أبيض */
+    color: white;
+
+    /* ظل أقوى */
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+}
+
+.card i { 
+    /* حجم الأيقونة */
+    font-size: 4rem; 
+
+    /* لون الأيقونة الأساسي */
+    color: var(--primary); 
+
+    /* مسافة تحت الأيقونة */
+    margin-bottom: 25px; 
+
+    /* حركة ناعمة */
+    transition: 0.5s; 
+
+    /* عشان أقدر أطبق transform */
+    display: inline-block;
+}
+
+/* عند hover الأيقونة تتغير */
+.card:hover i { 
+    color: white; 
+    transform: scale(1.1); 
+}
+
+/* عنوان الكرت */
+.card h3 { 
+    font-size: 1.8rem; 
+    margin-bottom: 15px; 
+    transition: 0.5s; 
+    color: var(--accent); 
+}
+
+/* يتحول للون الأبيض عند المرور */
+.card:hover h3 { 
+    color: white; 
+}
+
+/* وصف الكرت */
+.card p { 
+    color: var(--text-muted); 
+    font-size: 1.1rem; 
+    line-height: 1.7; 
+    transition: 0.5s; 
+}
+
+/* النص يتحول أبيض عند hover */
+.card:hover p { 
+    color: #f1f2f6; 
+}
+
+/* زر رئيسي احترافي */
+.main-btn {
+    padding: 15px 40px;
+
+    /* تدرج لوني جميل */
+    background: var(--gradient);
+
+    color: white;
+
+    border: none;
+
+    /* زر دائري */
+    border-radius: 50px;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    /* شكل اليد عند المرور */
+    cursor: pointer;
+
+    /* ظل خفيف */
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+
+    transition: 0.3s;
+
+    text-decoration: none;
+
+    display: inline-block;
+}
+/* تأثير الزر عند المرور */
+.main-btn:hover { 
+    /* يكبر شوي عشان يعطي إحساس تفاعل */
+    transform: scale(1.05); 
+
+    /* يغير اللون إلى أغمق */
+    background: var(--primary-dark);
+
+    /* ظل أقوى للزر */
+    box-shadow: 0 15px 30px rgba(76, 175, 80, 0.5); 
+}
+
+/* قسم من نحن */
+.about-section {
+    /* مسافة كبيرة فوق وتحت */
+    padding: 100px 0;
+
+    /* تدرج خفيف من الأبيض إلى الخلفية */
+    background: linear-gradient(
+        180deg, 
+        var(--white) 0%, 
+        var(--bg-light) 100%
+    );
+}
+
+/* ترتيب النص والصورة جنب بعض */
+.about-content-wrapper {
+    /* استخدمت flex عشان أرتب المحتوى */
+    display: flex;
+
+    /* محاذاة عمودية */
+    align-items: center;
+
+    /* مسافة بين النص والصورة */
+    gap: 60px;
+
+    /* يخلي العناصر تنزل تحت لو الشاشة صغيرة */
+    flex-wrap: wrap;
+}
+
+.about-content {
+    /* ياخذ مساحة متساوية */
+    flex: 1;
+
+    /* أقل عرض عشان ما يصغر كثير */
+    min-width: 300px;
+}
+
+.about-content h2 {
+    /* لون العنوان */
+    color: var(--accent);
+
+    /* حجم كبير */
+    font-size: 2.8rem;
+
+    /* مسافة تحت */
+    margin-bottom: 25px;
+
+    /* عشان أضيف خط تحته */
+    position: relative;
+
+    padding-bottom: 15px;
+}
+
+/* خط زخرفي تحت العنوان */
+.about-content h2::after {
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    width: 60px;
+    height: 5px;
+
+    background: var(--gradient);
+
+    border-radius: 5px;
+}
+
+.about-content p {
+    /* حجم النص */
+    font-size: 1.2rem;
+
+    /* لون رمادي مريح للعين */
+    color: var(--text-muted);
+
+    /* تباعد الأسطر */
+    line-height: 1.8;
+
+    /* مسافة بين الفقرات */
+    margin-bottom: 20px;
+}
+
+/* قائمة النقاط */
+.about-list {
+    margin-top: 30px;
+
+    /* إزالة النقاط الافتراضية */
+    list-style: none;
+}
+
+.about-list li {
+    /* حجم النص */
+    font-size: 1.2rem;
+
+    /* مسافة بين العناصر */
+    margin-bottom: 15px;
+
+    /* ترتيب الأيقونة مع النص */
+    display: flex;
+
+    align-items: center;
+
+    /* مسافة بين الأيقونة والنص */
+    gap: 15px;
+
+    /* خط عريض شوي */
+    font-weight: 600;
+}
+
+.about-list i {
+    /* لون الأيقونة */
+    color: var(--primary);
+
+    /* حجم الأيقونة */
+    font-size: 1.5rem;
+}
+
+/* صورة القسم */
+.about-image {
+    flex: 1;
+
+    min-width: 300px;
+
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+
+    border-radius: 20px;
+
+    /* ظل يعطي عمق للصورة */
+    box-shadow: -20px 20px 0 var(--secondary);
+
+    transition: 0.3s;
+
+    /* حركة خفيفة مستمرة */
+    animation: float 6s ease-in-out infinite;
+}
+
+/* عند المرور على الصورة */
+.about-image img:hover {
+    transform: translateY(-10px);
+
+    box-shadow: -10px 10px 0 var(--primary);
+}
+
+/* قسم التواصل */
+.contact-section {
+    /* مسافة كبيرة فوق وتحت */
+    padding: 100px 0;
+}
+
+.contact-wrapper {
+    /* خلفية بيضاء */
+    background: white;
+
+    /* حواف دائرية */
+    border-radius: 30px;
+
+    /* ترتيب المحتوى بشكل شبكي */
+    display: grid;
+
+    /* تقسيم تلقائي للأعمدة */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+    /* إخفاء أي جزء خارج الإطار */
+    overflow: hidden;
+
+    /* ظل خفيف */
+    box-shadow: var(--shadow);
+}
+ /* صندوق معلومات التواصل */
+.contact-info {
+    /* خلفية بيضاء */
+    background: var(--white);
+
+    /* مسافة داخلية كبيرة */
+    padding: 60px 50px;
+
+    /* لون النص الأساسي */
+    color: var(--text-color);
+
+    /* عشان أضيف عناصر مزخرفة داخله */
+    position: relative;
+
+    /* إخفاء أي عنصر يطلع برا */
+    overflow: hidden;
+
+    /* خط مميز على يمين الصندوق */
+    border-right: 5px solid var(--primary);
+}
+
+/* دائرة زخرفية بالخلفية */
+.contact-info::after {
+    content: '';
+
+    position: absolute;
+
+    bottom: -50px;
+    left: -50px;
+
+    /* حجم الدائرة */
+    width: 200px;
+    height: 200px;
+
+    /* لون أخضر شفاف جدًا */
+    background: rgba(76, 175, 80, 0.05);
+
+    /* شكل دائري */
+    border-radius: 50%;
+
+    /* خلف المحتوى */
+    z-index: 0;
+}
+
+/* رفع المحتوى فوق الدائرة الزخرفية */
+.contact-info h2,
+.contact-info p,
+.contact-item,
+.social-links {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info h2 {
+    /* حجم العنوان */
+    font-size: 2.5rem;
+
+    /* مسافة تحت العنوان */
+    margin-bottom: 25px;
+
+    /* عشان أضيف خط تحته */
+    position: relative;
+
+    padding-bottom: 15px;
+
+    /* لون غامق */
+    color: var(--dark);
+}
+
+/* خط تحت العنوان */
+.contact-info h2::after {
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    width: 60px;
+    height: 4px;
+
+    background: var(--primary);
+
+    border-radius: 4px;
+}
+
+.contact-info p {
+    /* حجم النص */
+    font-size: 1.1rem;
+
+    /* مسافة تحت الفقرة */
+    margin-bottom: 40px;
+
+    /* لون رمادي */
+    color: var(--text-muted);
+}
+
+/* كل عنصر من معلومات التواصل */
+.contact-item {
+    /* ترتيب الأيقونة مع النص */
+    display: flex;
+
+    align-items: center;
+
+    /* مسافة بين الأيقونة والنص */
+    gap: 20px;
+
+    /* مسافة بين العناصر */
+    margin-bottom: 25px;
+
+    /* حجم النص */
+    font-size: 1.2rem;
+}
+
+.contact-item i {
+    /* حجم الأيقونة */
+    font-size: 1.5rem;
+
+    /* خلفية خفيفة للأيقونة */
+    background: rgba(76, 175, 80, 0.1);
+
+    /* لون الأيقونة */
+    color: var(--primary);
+
+    /* حجم مربع الأيقونة */
+    width: 50px;
+    height: 50px;
+
+    /* توسيط الأيقونة داخل الدائرة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* شكل دائري */
+    border-radius: 50%;
+}
+
+/* أيقونات السوشيال */
+.social-links {
+    /* مسافة فوق */
+    margin-top: 50px;
+
+    /* ترتيب أفقي */
+    display: flex;
+
+    /* مسافة بين الأيقونات */
+    gap: 20px;
+}
+
+.social-links a {
+    /* لون الأيقونة */
+    color: var(--primary);
+
+    /* خلفية خفيفة */
+    background: rgba(76, 175, 80, 0.05);
+
+    /* حدود خفيفة */
+    border: 1px solid rgba(76, 175, 80, 0.1);
+
+    /* حجم الدائرة */
+    width: 45px;
+    height: 45px;
+
+    /* توسيط الأيقونة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* شكل دائري */
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+ /* تأثير أزرار السوشيال عند المرور */
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+    border-color: var(--primary);
+}
+
+/* نموذج التواصل */
+.contact-form {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* الحقول داخل الفورم */
+.contact-form input,
+.contact-form textarea {
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background: #f9f9f9;
+    transition: 0.3s;
+    outline: none;
+}
+
+/* عند الضغط على الحقل */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+/* الفوتر */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+}
+
+/* محتوى الفوتر */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* شعار الفوتر */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+/* تنسيق الشعار */
+.logo {
+    align-items: center;
+    width: 200px;
+}
+
+.logo img {width: 100%;}
+
+/* لون النص داخل الشعار */
+.footer-logo .logo-text span {color: #ccc;}
+
+/* وصف الفوتر */
+.footer-about p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* عناوين الأقسام */
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+/* قائمة الروابط */
+.footer-links ul {list-style: none;}
+
+.footer-links ul li {margin-bottom: 12px;}
+
+/* الروابط */
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary);
+    padding-right: 10px;
+}
+
+/* معلومات التواصل داخل الفوتر */
+.footer-contact p {
+    color: #ccc;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* الجزء السفلي من الفوتر */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #888;
+}
+
+/* تصميم الجوال */
+@media (max-width: 768px) {
+
+    /* هيدر الجوال */
+    header { padding: 8px 0; }
+
+    /* تصغير الشعار */
+    .logo { width: 100px; }
+
+    /* إظهار زر القائمة */
+    .menu-toggle { display: block; }
+
+    /* تغيير شكل أيقونة القائمة إلى X عند الفتح */
+    .menu-checkbox:checked ~ .menu-toggle i::before { content: "\f00d"; }
+
+    /* القائمة المنسدلة */
+    nav {
+        width: 100%;
+
+        /* مخفية افتراضيًا */
+        display: none;
+
+        background: white;
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+        z-index: 100;
+    }
+
+    /* إظهار القائمة عند الضغط */
+    .menu-checkbox:checked ~ nav {
+        display: block;
+        animation: slideDown 0.4s ease forwards;
+    }
+
+    /* ترتيب الروابط عمودي */
+    nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    nav ul li a { 
+        display: block; 
+        padding: 15px 25px; 
+        border-bottom: 1px solid rgba(0,0,0,0.02); 
+        font-size: 1.1rem;
+        text-align: right;
+    }
+
+    /* إخفاء الخط المتحرك في الجوال */
+    nav ul li a::after { display: none; }
+
+    /* السلايدر في الجوال */
+    .hero-text { text-align: center; width: 100%; }
+    .hero-text h1 { font-size: 2.2rem; line-height: 1.3; }
+    .hero-text p { font-size: 1rem; margin: 15px auto 30px; }
+
+    /* العناوين */
+    .section-title h2 { font-size: 2rem; }
+    .section-title p { font-size: 1.1rem; }
+    .section-title .subtitle { font-size: 0.85rem; padding: 4px 15px; }
+
+    /* الهيدر الداخلي */
+    .page-header { padding-top: 130px; padding-bottom: 40px; }
+    .page-header h1 { font-size: 2.2rem; }
+    .page-header p { font-size: 1rem; }
+
+    /* قسم من نحن */
+    .about-section { padding: 60px 0; }
+    .about-content-wrapper { gap: 40px; }
+    .about-content h2 { font-size: 1.8rem; }
+    .about-content p { font-size: 1.1rem; }
+
+    /* التواصل */
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .contact-info, .contact-form { padding: 30px 20px; }
+    .contact-info h2 { font-size: 1.8rem; }
+
+    /* الكروت */
+    .grid-container { gap: 20px; }
+    .card { padding: 30px 20px; }
+    .card h3 { font-size: 1.5rem; }
+}
+
+/* حركة ظهور النص من تحت */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* حركة فتح القائمة في الجوال */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* حركة الصورة العائمة */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}

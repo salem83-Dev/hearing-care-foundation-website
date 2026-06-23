@@ -1,0 +1,182 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<!-- هنا حددت اللغة عربي واتجاه الصفحة من اليمين لليسار -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- هذا يخلي الموقع متجاوب مع الجوال والشاشات -->
+
+    <title>من نحن | مؤسسة السمع</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة أيقونات استخدمتها في الموقع -->
+</head>
+
+<body>
+
+    <header>
+        <!-- هذا الهيدر حق الموقع -->
+
+        <div class="container header-container">
+            <!-- container عشان يرتب العناصر في الهيدر -->
+
+            <div class="logo">
+                <img src="image/logo2.png" alt="مؤسسة السمع" class="logo">
+            </div>
+
+            <!-- هذا checkbox استخدمته عشان قائمة الجوال -->
+            <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+
+            <label for="menu-checkbox" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+                <!-- أيقونة القائمة -->
+            </label>
+
+            <nav>
+                <!-- روابط التنقل بين الصفحات -->
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+
+                    <!-- هنا حطيت active عشان تبين أن هذه الصفحة الحالية -->
+                    <li><a href="about.html" class="active">من نحن</a></li>
+
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <!-- عنوان الصفحة في الأعلى -->
+
+        <div class="container">
+            <h1>من نحن</h1>
+            <!-- العنوان الرئيسي -->
+
+            <p>تعرف على قصتنا ورؤيتنا في بناء مجتمع يسمع بوضوح</p>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <!-- هذا قسم التعريف بالمؤسسة -->
+
+        <div class="container about-content-wrapper">
+            <!-- قسمت الصفحة إلى نص وصورة -->
+
+            <div class="about-content">
+                <!-- هنا النص والمعلومات -->
+                <span class="subtitle">تعرف علينا</span>
+                <h2>قصة مؤسستنا</h2>
+                <p>
+                    تأسست مؤسسة السمع لتكون منارة أمل لكل طفل يحلم بسماع صوت أمه،
+                    ولكل شخص يرغب في استعادة تواصله الفعال مع العالم المحيط.
+                </p>
+
+                <p>
+                    نؤمن في مؤسسة السمع بأن حاسة السمع هي بوابة العقل للتواصل مع العالم الخارجي،
+                    ولذلك خصصنا كل جهودنا لتوفير أحدث التقنيات والبرامج التأهيلية.
+                </p>
+
+                <ul class="about-list">
+                    <!-- قائمة المميزات -->
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        رؤية واضحة نحو مجتمع يسمع بوضوح ويشارك بفعالية.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        كادر طبي وتقني بخبرة تزيد عن 20 عاماً في مجال التأهيل السمعي.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        توفير أحدث السماعات والمعينات السمعية العالمية.
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="about-image">
+                <!-- هنا صورة المؤسسة -->
+
+                <img src="image/a.jpg" alt="صورة مؤسسة السمع">
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <!-- هذا الفوتر أسفل الصفحة -->
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    <img src="image/logowhite.png" alt="" class="logo">
+                    <!-- شعار الفوتر -->
+                </div>
+
+                <div class="footer-about">
+                    <!-- نبذة عن المؤسسة -->
+
+                    <p>
+                        نعمل بشغف لنعيد الأمل والبسمة لمن يعانون من مشاكل السمع،
+                        من خلال تقنيات حديثة وكادر خبير يضع صحتك في المقام الأول.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <!-- روابط سريعة -->
+
+                <h3>روابط هامة</h3>
+
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <!-- معلومات التواصل -->
+
+                <h3>تواصل معنا</h3>
+
+                <p>
+                    <i class="fas fa-location-dot"></i>
+                    اليمن - حضرموت - تريم 
+                </p>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    967770834056+
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    hearingcareandrehabilitationfo@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <!-- حقوق النشر -->
+
+            &copy; 2024 مؤسسة السمع للرعاية والتأهيل. جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- ربطت ملف الجافاسكربت عشان الحركات والتفاعل في الموقع -->
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<!-- هنا حددت اللغة عربي والاتجاه من اليمين لليسار -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- هذا الترميز عشان يدعم اللغة العربية بدون مشاكل -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- الموقع يكون متجاوب مع الجوال والشاشات الصغيرة -->
+
+    <title>مؤسسة السمع للرعاية والتأهيل</title>
+    <!-- عنوان الصفحة اللي يظهر في التبويب -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- هذا مكتبة أيقونات جاهزة استخدمتها في الموقع -->
+</head>
+
+<body>
+
+    <header>
+        <!-- هذا الهيدر اللي فوق الصفحة ويحتوي على الشعار والقائمة -->
+
+        <div class="container header-container">
+            <!-- حطيت container عشان يرتب العناصر ويخليها في المنتصف -->
+
+            <div class="logo">
+                <img src="image/logo2.png" alt="مؤسسة السمع" class="logo">
+                <!-- هنا حطيت شعار المؤسسة -->
+            </div>
+
+            <!-- هذا checkbox استخدمته عشان أسوي قائمة للجوال -->
+            <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+
+            <label for="menu-checkbox" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+                <!-- أيقونة الثلاث خطوط لفتح القائمة -->
+            </label>
+
+            <nav>
+                <!-- هنا قائمة التنقل بين الصفحات -->
+                <ul>
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <!-- حطيت active عشان تبين الصفحة الحالية -->
+
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <!-- هذا قسم البداية في الصفحة (السلايدر والعنوان الرئيسي) -->
+
+        <!-- سلايدر الصور -->
+        <div class="hero-slide" style="background-image: url('image/1.png');"></div>
+        <div class="hero-slide" style="background-image: url('image/a.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('image/b.jpg');"></div>
+
+        <div class="hero-text container">
+            <!-- النص اللي يظهر فوق الصور -->
+
+            <h1>نسمعُ نبض الأمل</h1>
+            <p>
+                أفضل مراكز التأهيل التخصصي لضعاف السمع في المنطقة، نقدم رعاية متكاملة بأحدث التقنيات.
+            </p>
+            <a href="services.html" class="main-btn">استكشف خدماتنا</a>
+            <!-- زر ينقل المستخدم لصفحة الخدمات -->
+        </div>
+    </div>
+
+    <section class="services-section">
+        <!-- هذا قسم الخدمات اللي نقدمها -->
+
+        <div class="container">
+
+            <div class="section-title">
+                <!-- عنوان القسم -->
+
+                <span class="subtitle">ماذا نقدم؟</span>
+                <h2>خدماتنا التخصصية</h2>
+
+                <p>
+                    نقدم أفضل الحلول لجميع مشاكل السمع والنطق بأحدث التقنيات
+                </p>
+            </div>
+
+            <div class="grid-container">
+                <!-- هنا استخدمت grid عشان أعرض الخدمات بشكل مرتب -->
+
+                <div class="card" data-number="01">
+                    <!-- كرت الخدمة الأولى -->
+
+                    <i class="fas fa-stethoscope"></i>
+                    <!-- أيقونة طبية -->
+
+                    <h3>فحص السمع</h3>
+
+                    <p>
+                        تشخيص دقيق بأحدث الأجهزة الإلكترونية لجميع الأعمار وتحت إشراف أطباء متخصصين.
+                    </p>
+                </div>
+
+                <div class="card" data-number="02">
+                    <!-- كرت الخدمة الثانية -->
+
+                    <i class="fas fa-child"></i>
+
+                    <h3>تأهيل الأطفال</h3>
+
+                    <p>
+                        برامج مكثفة للنطق والتخاطب وتأهيل زارعي القوقعة بأيدي خبراء متخصصين ومؤهلين.
+                    </p>
+                </div>
+
+                <div class="card" data-number="03">
+                    <!-- كرت الخدمة الثالثة -->
+
+                    <i class="fas fa-ear-listen"></i>
+
+                    <h3>المعينات السمعية</h3>
+
+                    <p>
+                        توفير وبرمجة أحدث السماعات الرقمية المختفية والذكية من أرقى الماركات العالمية.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- هذا الفوتر أسفل الصفحة -->
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    <img src="image/logowhite.png" alt="" class="logo">
+                    <!-- شعار أبيض للفوتر -->
+                </div>
+
+                <div class="footer-about">
+                    <!-- نبذة بسيطة عن المؤسسة -->
+
+                    <p>
+                        نعمل بشغف لنعيد الأمل والبسمة لمن يعانون من مشاكل السمع،
+                        من خلال تقنيات حديثة وكادر خبير يضع صحتك في المقام الأول.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <!-- روابط سريعة داخل الموقع -->
+
+                <h3>روابط هامة</h3>
+
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <!-- معلومات التواصل -->
+
+                <h3>تواصل معنا</h3>
+
+                <p>
+                    <i class="fas fa-location-dot"></i>
+                        اليمن - حضرموت - تريم 
+                    </p>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    967770834056+
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    hearingcareandrehabilitationfo@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <!-- حقوق النشر -->
+
+            &copy; 2026 مؤسسة السمع للرعاية والتأهيل. جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- ربطت ملف الجافاسكربت عشان أضيف الحركات أو التفاعل في الموقع -->
+
+</body>
+
+</html>
